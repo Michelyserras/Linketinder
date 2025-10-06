@@ -1,4 +1,8 @@
-import { CadastroCandidato } from "./pages/CandidatoPerfil"
+
+import { navBar } from "./pages/NavBar";
+import { mostrarTela } from "./pages/PaginaInicial";
 
 const app = document.querySelector<HTMLDivElement>('#app')!
-app.innerHTML = CadastroCandidato().innerHTML;
+app.appendChild(navBar());
+app.appendChild(mostrarTela())
+
