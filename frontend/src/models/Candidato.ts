@@ -12,6 +12,30 @@ class Candidato extends Pessoa {
         this.competencias = competencias;
     }
 
+    getCpf(): string {
+        return this.cpf;
+    }
+
+    setCpf(cpf: string): void {
+        this.cpf = cpf;
+    }
+
+    getIdade(): number {
+        return this.idade;
+    }
+
+    setIdade(idade: number): void {
+        this.idade = idade;
+    }
+
+    getCompetencias(): string[] {
+        return this.competencias;
+    }
+
+    setCompetencias(competencias: string[]): void {
+        this.competencias = competencias;
+    }
+
     curtidas():number{
         return 0;
     }
