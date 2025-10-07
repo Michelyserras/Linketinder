@@ -55,7 +55,7 @@ export function mainContent() {
 
             <div class="candidato-card">
                 <span class="material-symbols-outlined">
-                    assignment_ind
+                assignment_ind
                 </span>
                 <h2>Sou um candidato!</h2>
                 <span>Cadastre-se e conecte-se com empresas incríveis</span>
