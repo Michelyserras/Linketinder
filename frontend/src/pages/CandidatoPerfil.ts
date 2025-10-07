@@ -1,10 +1,12 @@
+import { mostrarTelaAv } from "./Avaliacao";
+import { navBar } from "./NavBar";
 
 export function CadastroCandidato() {
     const cadastro = document.createElement('div');
+    cadastro.className = "CandidatoForm";
     cadastro.innerHTML = `
     <h1>Cadastro Candidato</h1>
-    <dialog>
-      <form method="dialog">
+      <form>
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required />
         <label for="email">Email:</label>   
@@ -22,9 +24,41 @@ export function CadastroCandidato() {
         </form>
           <button id="salvar-cadastro-btn">Salvar</button>
           <button id="cancelar-cadastro-btn">Cancelar</button>
-    </dialog>`
+    </form>`
+
     return cadastro;
 }
+
+
+
+export function CardCandidato(){
+    const card = document.createElement('div');
+
+    card.innerHTML = `
+        <span class="material-symbols-outlined">
+            assignment_ind
+        </span>
+        <h2>Sou um candidato!</h2>
+        <span>Cadastre-se e conecte-se com empresas incríveis</span>
+    `
+    const button = document.createElement('button');
+    button.textContent = 'Cadastrar Candidato';
+    button.addEventListener('click', limparTela);
+    card.appendChild(button);
+
+    return card;
+}
+
+
+ function limparTela() {
+    const main = document.getElementById('app');
+    main!.innerHTML= "";
+    main!.appendChild(navBar());
+    main!.appendChild(mostrarTelaAv())
+
+ }
+
+
 
 export function CandidatoPerfil() {
     const perfil = document.createElement('div');

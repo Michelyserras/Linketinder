@@ -14,10 +14,12 @@ export function EmpresaPerfil() {
 
     return perfil;
 }
+
+
 export function CadastroEmpresa() {
     const cadastro = document.createElement('div');
     cadastro.innerHTML = `
-    <dialog>
+        <h1>Cadastro Empresa</h1>
         <form method="dialog">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required />
@@ -35,8 +37,7 @@ export function CadastroEmpresa() {
             <input type="text" id="cnpj" name="cnpj" required />
         </form>
         <button id="salvar-cadastro-btn">Salvar</button>
-        <button id="cancelar-cadastro-btn">Cancelar</button>
-    </dialog>`
+        <button id="cancelar-cadastro-btn">Cancelar</button>`
     return cadastro;
 }
 
