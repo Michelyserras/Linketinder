@@ -17,6 +17,8 @@ export function mostrarTela() {
 
 export function navBar() {
     const nav = document.createElement("nav");
+    nav.className = "nav-container";
+
 
     nav.innerHTML = ` 
     <div id="logo">
@@ -25,8 +27,11 @@ export function navBar() {
     </span>
     <a href="#">Linketinder</a>
     </div>
-    <a href="#" id="empresas-link">Empresas</a>
-    <a href="#" id="candidato-link">Candidatos</a>
+    <div id="nav-links">
+        <a href="#" id="empresas-link">ver empresas</a>
+        <a href="#" id="candidato-link">ver candidatos</a>
+    </div>
+  
     `
     return nav;
 
@@ -38,11 +43,12 @@ export function mainContent() {
 
 
     div.innerHTML = `
-        <h1>Conectando Talentos com oportunidades</h1>
-        <p>Encontre a vaga dos seus sonhos ou o candidato ideal</p>
-
+        <div id="descricao">
+            <h1>Conectando Talentos com oportunidades</h1>
+            <p>Encontre a vaga dos seus sonhos ou o candidato ideal</p>
+        </div>
         <div id="cards-container">
-            <div class="empresa-card">
+            <div class="card">
                 <span class="material-symbols-outlined">
                     apartment
                 </span>
@@ -53,7 +59,7 @@ export function mainContent() {
                 <button id="ver-vagas-btn">Ver Empresas</button>
             </div>
 
-            <div class="candidato-card">
+            <div class="card">
                 <span class="material-symbols-outlined">
                 assignment_ind
                 </span>

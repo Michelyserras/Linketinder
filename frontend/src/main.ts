@@ -1,5 +1,5 @@
 
-import { navBar } from "./pages/NavBar";
+import { navBar } from "./pages/PaginaInicial";
 import { mostrarTela } from "./pages/PaginaInicial";
 
 const app = document.querySelector<HTMLDivElement>('#app')!

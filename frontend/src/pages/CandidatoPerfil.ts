@@ -1,5 +1,5 @@
 import { mostrarTelaAv } from "./Avaliacao";
-import { navBar } from "./NavBar";
+import { navBar } from "./PaginaInicial";
 
 export function CadastroCandidato() {
     const cadastro = document.createElement('div');
@@ -31,7 +31,7 @@ export function CadastroCandidato() {
 
 
 
-export function CardCandidato(){
+export function CardCandidato() {
     const card = document.createElement('div');
 
     card.innerHTML = `
@@ -43,20 +43,20 @@ export function CardCandidato(){
     `
     const button = document.createElement('button');
     button.textContent = 'Cadastrar Candidato';
-    button.addEventListener('click', limparTela);
+    // button.addEventListener('click', limparTela);
     card.appendChild(button);
 
     return card;
 }
 
 
- function limparTela() {
-    const main = document.getElementById('app');
-    main!.innerHTML= "";
-    main!.appendChild(navBar());
-    main!.appendChild(mostrarTelaAv())
+//  function limparTela() {
+//     const main = document.getElementById('app');
+//     main!.innerHTML= "";
+//     main!.appendChild(navBar());
+//     main!.appendChild(mostrarTelaAv())
 
- }
+//  }
 
 
 
