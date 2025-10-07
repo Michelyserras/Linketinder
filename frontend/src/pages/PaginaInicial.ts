@@ -44,8 +44,8 @@ export function mainContent() {
 
     div.innerHTML = `
         <div id="descricao">
-            <h1>Conectando Talentos com oportunidades</h1>
-            <p>Encontre a vaga dos seus sonhos ou o candidato ideal</p>
+            <h1>Conectando talentos com oportunidades</h1>
+            <p>Encontre a vaga dos seus sonhos ou o candidato ideal para sua equipe</p>
         </div>
         <div id="cards-container">
             <div class="card">

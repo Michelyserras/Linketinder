@@ -1,5 +1,5 @@
-import { mostrarTelaAv } from "./Avaliacao";
-import { navBar } from "./PaginaInicial";
+// import { mostrarTelaAv } from "./Avaliacao";
+// import { navBar } from "./PaginaInicial";
 
 export function CadastroCandidato() {
     const cadastro = document.createElement('div');
