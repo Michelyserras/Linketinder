@@ -39,3 +39,31 @@ export function CadastroEmpresa() {
     </dialog>`
     return cadastro;
 }
+
+
+export function editarPerfilEmpresa() {
+    const editar = document.createElement('div');
+    editar.innerHTML = `
+    <h1>Editar Perfil da Empresa</h1>
+    <dialog>
+        <form method="dialog">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" required />
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required />
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" required />
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" required />
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required />
+        </form>
+    <button id="salvar-cadastro-btn">Salvar</button>
+    <button id="cancelar-cadastro-btn">Cancelar</button>
+    </dialog>`
+    return editar;
+}

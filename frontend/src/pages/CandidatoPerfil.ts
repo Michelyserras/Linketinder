@@ -20,6 +20,8 @@ export function CadastroCandidato() {
         <label for="habilidades">Habilidades:</label>
         <input type="text" id="habilidades" name="habilidades" required />
         </form>
+          <button id="salvar-cadastro-btn">Salvar</button>
+          <button id="cancelar-cadastro-btn">Cancelar</button>
     </dialog>`
     return cadastro;
 }
