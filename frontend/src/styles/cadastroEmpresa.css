@@ -93,18 +93,4 @@
   color: var(--text-color);
 }
 
-/* Responsividade - em telas menores volta para uma coluna */
-@media (max-width: 768px) {
-  .EmpresaForm form {
-    grid-template-columns: 1fr;
-  }
 
-  .EmpresaForm .group.full-width {
-    grid-column: 1;
-  }
-
-  .EmpresaForm .button-container {
-    grid-column: 1;
-    flex-direction: column;
-  }
-}
