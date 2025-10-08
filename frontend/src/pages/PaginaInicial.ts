@@ -1,19 +1,7 @@
-// import { CadastroCandidato, CardCandidato } from "./CandidatoPerfil";
-// import { CadastroEmpresa } from "./EmpresaPerfil";
+import { mostrarTelaCadastroCandidato, mostrarTelaCadastroEmpresa, mostrarTelaPrincipal } from "./MostrarTela";
 
-export function mostrarTela() {
-    const app = document.getElementById('app');
-    app!.innerHTML = "";
-    const div = document.createElement('div');
-    app!.appendChild(div);
-    div.appendChild(navBar());
-    div.appendChild(mainContent());
-    // div.appendChild(CadastroCandidato());
-    // div.appendChild(CadastroEmpresa());
-    // div.appendChild(CardCandidato());
+const app = document.querySelector<HTMLDivElement>('#app')!
 
-    return div;
-}
 
 export function navBar() {
     const nav = document.createElement("nav");
@@ -25,7 +13,7 @@ export function navBar() {
     <span class="material-symbols-outlined">
         business_center
     </span>
-    <a href="#">Linketinder</a>
+    <a href="">Linke<span id="highlight">tinder</span></a>
     </div>
     <div id="nav-links">
         <a href="#" id="empresas-link">ver vagas</a>
@@ -33,6 +21,13 @@ export function navBar() {
     </div>
   
     `
+
+    const link = nav.querySelector('#logo a');
+    link?.addEventListener('click', (e) => {
+    e.preventDefault();
+        mostrarTelaPrincipal(app);
+    });
+
     return nav;
 
 }
@@ -49,26 +44,43 @@ export function mainContent() {
         </div>
         <div id="cards-container">
             <div class="card">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined" id="icon">
                     apartment
                 </span>
                 <h2>Sou uma empresa!</h2>
-                <span>Cadastre sua empresa e encontre talentos </span>
-                <button id="empresa-btn">Cadastrar Empresa</button>
-                <button id="vaga-btn">Fazer Login</button>
+                <span id="text">Cadastre sua empresa e encontre talentos </span>
+                <div id="btn">
+                    <button id="btn-cadastro" class="btn-empresa">Cadastrar Empresa</button>
+                    <button id="btn-login">Fazer Login</button>
+                </div>
+                
             </div>
 
             <div class="card">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined" id="icon">
                 assignment_ind
                 </span>
                 <h2>Sou um candidato!</h2>
-                <span>Cadastre-se e conecte-se com empresas incríveis</span>
-                <button id="candidato-btn">Cadastrar Candidato</button>
-                <button id="ver-candidatos-btn">Fazer Login</button>
+                <span id="text">Cadastre-se e conecte-se com empresas incríveis</span>
+                <div id="btn">
+                    <button id="btn-cadastro" class="btn-candidato">Cadastrar Candidato</button>
+                    <button id="btn-login">Fazer Login</button>
+                </div>
             </div>
         </div>
     `
+
+    const btnCadastroEmpresa = div.querySelector('.btn-empresa');
+    btnCadastroEmpresa?.addEventListener('click', () => {  
+        mostrarTelaCadastroEmpresa(app);
+    });
+
+    const btnCadastroCandidato = div.querySelector('.btn-candidato');
+    btnCadastroCandidato?.addEventListener('click', () => {
+        mostrarTelaCadastroCandidato(app);
+    });
+
+
     return div;
 }
 

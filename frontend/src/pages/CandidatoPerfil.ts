@@ -1,66 +1,55 @@
 // import { mostrarTelaAv } from "./Avaliacao";
 // import { navBar } from "./PaginaInicial";
 
-export function CadastroCandidato() {
+export function cadastroCandidato() {
     const cadastro = document.createElement('div');
     cadastro.className = "CandidatoForm";
     cadastro.innerHTML = `
     <h1>Cadastro Candidato</h1>
       <form>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required />
-        <label for="email">Email:</label>   
-        <input type="email" id="email" name="email" required />
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" required />
-        <label for="estado">Estado:</label>
-        <input type="text" id="estado" name="estado" required />
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required />
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" required />
-        <label for="habilidades">Habilidades:</label>
-        <input type="text" id="habilidades" name="habilidades" required />
-        </form>
+        <div class="group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
+        </div>
+        <div class="group">
+          <label for="email">Email:</label>   
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="group">
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep" name="cep" required />
+        </div>
+        <div class="group">
+          <label for="estado">Estado:</label>
+          <input type="text" id="estado" name="estado" required />
+        </div>
+        <div class="group">
+          <label for="cpf">CPF:</label>
+          <input type="text" id="cpf" name="cpf" required />
+        </div>
+        <div class="group">
+          <label for="idade">Idade:</label>
+          <input type="number" id="idade" name="idade" required />
+        </div>
+        <div class="group full-width">
+          <label for="descricao">Descrição:</label>
+          <input type="text" id="descricao" name="descricao" required />
+        </div>
+        <div class="group full-width">
+          <label for="habilidades">Habilidades:</label>
+          <input type="text" id="habilidades" name="habilidades" required />
+        </div>
+        <div class="button-container">
           <button id="salvar-cadastro-btn">Salvar</button>
           <button id="cancelar-cadastro-btn">Cancelar</button>
-    </form>`
+        </div>
+      </form>`;
 
     return cadastro;
 }
 
 
-
-export function CardCandidato() {
-    const card = document.createElement('div');
-
-    card.innerHTML = `
-        <span class="material-symbols-outlined">
-            assignment_ind
-        </span>
-        <h2>Sou um candidato!</h2>
-        <span>Cadastre-se e conecte-se com empresas incríveis</span>
-    `
-    const button = document.createElement('button');
-    button.textContent = 'Cadastrar Candidato';
-    // button.addEventListener('click', limparTela);
-    card.appendChild(button);
-
-    return card;
-}
-
-
-//  function limparTela() {
-//     const main = document.getElementById('app');
-//     main!.innerHTML= "";
-//     main!.appendChild(navBar());
-//     main!.appendChild(mostrarTelaAv())
-
-//  }
-
-
-
-export function CandidatoPerfil() {
+export function candidatoPerfil() {
     const perfil = document.createElement('div');
     perfil.innerHTML = `
         <h1>Perfil do Candidato</h1>
@@ -105,7 +94,7 @@ export function editarPerfilCandidato() {
 }
 
 
-export function CandidatoVagas() {
+export function candidatoVagas() {
     const vagas = document.createElement('div');
     vagas.innerHTML = `
         <h1>Vagas do Candidato</h1>

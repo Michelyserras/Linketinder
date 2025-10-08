@@ -1,5 +1,5 @@
 
-export function EmpresaPerfil() {
+export function empresaPerfil() {
     const perfil = document.createElement('div');
     perfil.innerHTML = `
         <h1>Perfil da Empresa</h1>
@@ -16,28 +16,45 @@ export function EmpresaPerfil() {
 }
 
 
-export function CadastroEmpresa() {
+export function cadastroEmpresa() {
     const cadastro = document.createElement('div');
+    cadastro.className = "EmpresaForm";
     cadastro.innerHTML = `
         <h1>Cadastro Empresa</h1>
         <form method="dialog">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required />
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-            <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" required />
-            <label for="pais">País:</label>
-            <input type="text" id="pais" name="pais" required />
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" required />
-            <label for="descricao">Descrição:</label>
-            <input type="text" id="descricao" name="descricao" required />
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj" name="cnpj" required />
-        </form>
-        <button id="salvar-cadastro-btn">Salvar</button>
-        <button id="cancelar-cadastro-btn">Cancelar</button>`
+            <div class="group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required />
+            </div>
+            <div class="group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="group">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" required />
+            </div>
+            <div class="group">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" name="pais" required />
+            </div>
+            <div class="group">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" required />
+            </div>
+            <div class="group">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj" required />
+            </div>
+            <div class="group full-width">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" required />
+            </div>
+            <div class="button-container">
+                <button id="salvar-cadastro-btn">Salvar</button>
+                <button id="cancelar-cadastro-btn">Cancelar</button>
+            </div>
+        </form>`;
     return cadastro;
 }
 

@@ -1,8 +1,8 @@
 
-import { navBar } from "./pages/PaginaInicial";
-import { mostrarTela } from "./pages/PaginaInicial";
+import { mostrarTelaPrincipal } from "./pages/MostrarTela";
+
+import "./styles/cadastroCandidato.css";
 
 const app = document.querySelector<HTMLDivElement>('#app')!
-app.appendChild(navBar());
-app.appendChild(mostrarTela())
+mostrarTelaPrincipal(app);
 
