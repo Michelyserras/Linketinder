@@ -28,7 +28,7 @@ export function navBar() {
     <a href="#">Linketinder</a>
     </div>
     <div id="nav-links">
-        <a href="#" id="empresas-link">ver empresas</a>
+        <a href="#" id="empresas-link">ver vagas</a>
         <a href="#" id="candidato-link">ver candidatos</a>
     </div>
   
@@ -53,10 +53,9 @@ export function mainContent() {
                     apartment
                 </span>
                 <h2>Sou uma empresa!</h2>
-                <span>Cadastre sua empresa e encontre talentos para a sua equipe</span>
+                <span>Cadastre sua empresa e encontre talentos </span>
                 <button id="empresa-btn">Cadastrar Empresa</button>
-                <button id="vaga-btn">Publicar Vaga</button>
-                <button id="ver-vagas-btn">Ver Empresas</button>
+                <button id="vaga-btn">Fazer Login</button>
             </div>
 
             <div class="card">
@@ -66,7 +65,7 @@ export function mainContent() {
                 <h2>Sou um candidato!</h2>
                 <span>Cadastre-se e conecte-se com empresas incríveis</span>
                 <button id="candidato-btn">Cadastrar Candidato</button>
-                <button id="ver-candidatos-btn">Ver Candidatos</button>
+                <button id="ver-candidatos-btn">Fazer Login</button>
             </div>
         </div>
     `
