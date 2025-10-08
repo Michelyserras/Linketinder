@@ -15,6 +15,28 @@ export function empresaPerfil() {
     return perfil;
 }
 
+export function empresaLogin() {
+    const login = document.createElement('div');
+    login.className = "EmpresaLogin";
+    login.innerHTML = `
+    <h1>Login Empresa</h1>
+      <form>
+        <div class="group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="group">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required />
+        </div>
+        <div class="button-container">
+          <button id="login-btn">Login</button>
+          <button id="cancelar-login-btn">Cancelar</button>
+        </div>
+      </form>`;
+
+    return login;
+}
 
 export function cadastroEmpresa() {
     const cadastro = document.createElement('div');
@@ -49,6 +71,8 @@ export function cadastroEmpresa() {
             <div class="group full-width">
                 <label for="descricao">Descrição:</label>
                 <input type="text" id="descricao" name="descricao" required />
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required />
             </div>
             <div class="button-container">
                 <button id="salvar-cadastro-btn">Salvar</button>

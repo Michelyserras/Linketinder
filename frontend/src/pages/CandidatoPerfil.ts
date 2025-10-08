@@ -36,6 +36,8 @@ export function cadastroCandidato() {
         <div class="group full-width">
           <label for="habilidades">Habilidades:</label>
           <input type="text" id="habilidades" name="habilidades" required />
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required />
         </div>
         <div class="button-container">
           <button id="salvar-cadastro-btn">Salvar</button>
@@ -46,6 +48,28 @@ export function cadastroCandidato() {
     return cadastro;
 }
 
+export function loginCandidato() {
+    const login = document.createElement('div');
+    login.className = "CandidatoLogin";
+    login.innerHTML = `
+    <h1>Login Candidato</h1>
+      <form>
+        <div class="group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+        <div class="group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required />
+        </div>
+        <div class="button-container">
+            <button id="login-btn">Login</button>
+            <button id="cancelar-login-btn">Cancelar</button>
+        </div>
+      </form>`;
+
+      return login;
+}
 
 export function candidatoPerfil() {
     const perfil = document.createElement('div');

@@ -1,71 +1,57 @@
-:root {
-  --font: "Inter", sans-serif;
-  --primary-color: #000;
-  --secondary-color: #646161;
-  --terciary-color: #5f9ea0;
-  --text-color: #ffffff;
-  --hover-color: #71b8bb;
-  --hover-color2: #646161a9;
-}
 
-.CandidatoForm {
+/*Login Empresa*/
+.EmpresaLogin {
   padding-top: 5rem;
-  max-width: 50rem;
+  max-width: 30rem;
   margin: 1.25rem auto;
   padding: 1.25rem;
-  background: white;
+  background: var(--text-color);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
   border-radius: 0.5rem;
 }
 
-.CandidatoForm h1 {
+.EmpresaLogin h1 {
   text-align: center;
   color: var(--secondary-color);
   margin-bottom: 2rem;
 }
 
-.CandidatoForm form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9375rem;
-  align-items: end;
+.EmpresaLogin form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.CandidatoForm .group {
+.EmpresaLogin .group {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.CandidatoForm .group.full-width {
-  grid-column: 1 / -1;
-}
-
-.CandidatoForm label {
+.EmpresaLogin label {
   color: var(--secondary-color);
   font-weight: bold;
 }
 
-.CandidatoForm input {
+.EmpresaLogin input {
   padding: 0.625rem;
   border: 1px solid var(--secondary-color);
   border-radius: 0.25rem;
   font-size: 1rem;
 }
 
-.CandidatoForm input:focus {
+.EmpresaLogin input:focus {
   outline: none;
   border-color: var(--terciary-color);
 }
 
-.CandidatoForm .button-container {
-  grid-column: 1 / -1;
+.EmpresaLogin .button-container {
   display: flex;
   gap: 0.625rem;
   margin-top: 1.25rem;
 }
 
-.CandidatoForm button {
+.EmpresaLogin button {
   flex: 1;
   padding: 0.75rem;
   border: none;
@@ -74,25 +60,27 @@
   font-size: 1rem;
 }
 
-#salvar-cadastro-btn {
+#login-btn {
   background: var(--terciary-color);
   color: var(--text-color);
 }
 
-#cancelar-cadastro-btn {
+#cancelar-login-btn {
   background: var(--secondary-color);
   color: var(--text-color);
 }
 
-#salvar-cadastro-btn:hover {
+#login-btn:hover {
   background: var(--hover-color);
 }
 
-#cancelar-cadastro-btn:hover {
+#cancelar-login-btn:hover {
   background: var(--hover-color2);
   color: var(--text-color);
 }
 
+
+/*Login candidato*/
 
 .CandidatoLogin {
   padding-top: 5rem;
@@ -172,3 +160,6 @@
   background: var(--hover-color2);
   color: var(--text-color);
 }
+
+
+

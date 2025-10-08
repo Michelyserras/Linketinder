@@ -1,4 +1,4 @@
-import { mostrarTelaCadastroCandidato, mostrarTelaCadastroEmpresa, mostrarTelaPrincipal } from "./MostrarTela";
+import { mostrarTelaCadastroCandidato, mostrarTelaCadastroEmpresa, mostrarTelaLoginCandidato, mostrarTelaLoginEmpresa, mostrarTelaPrincipal } from "./MostrarTela";
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
@@ -51,7 +51,7 @@ export function mainContent() {
                 <span id="text">Cadastre sua empresa e encontre talentos </span>
                 <div id="btn">
                     <button id="btn-cadastro" class="btn-empresa">Cadastrar Empresa</button>
-                    <button id="btn-login">Fazer Login</button>
+                    <button id="btn-login" class="btn-login-empresa">Fazer Login</button>
                 </div>
                 
             </div>
@@ -64,7 +64,7 @@ export function mainContent() {
                 <span id="text">Cadastre-se e conecte-se com empresas incríveis</span>
                 <div id="btn">
                     <button id="btn-cadastro" class="btn-candidato">Cadastrar Candidato</button>
-                    <button id="btn-login">Fazer Login</button>
+                    <button id="btn-login" class="btn-login-candidato">Fazer Login</button>
                 </div>
             </div>
         </div>
@@ -80,7 +80,16 @@ export function mainContent() {
         mostrarTelaCadastroCandidato(app);
     });
 
+    const btnLoginCandidato = div.querySelector('.btn-login-candidato');    
+    btnLoginCandidato?.addEventListener('click', () => {
+        mostrarTelaLoginCandidato(app);
+    });
 
+    const btnLoginEmpresa = div.querySelector('.btn-login-empresa');
+    btnLoginEmpresa?.addEventListener('click', () => {
+        mostrarTelaLoginEmpresa(app);
+    });
+    
     return div;
 }
 
