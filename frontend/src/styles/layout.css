@@ -176,3 +176,48 @@
   background-color: var(--hover-color2);
   cursor: pointer;
 }
+
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-info {
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.nav-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.25rem;
+  background: transparent;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-button:hover {
+  background: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.nav-button.logout {
+  background: var(--terciary-color);
+  color: var(--text-color);
+  border-color: var(--terciary-color);
+}
+
+.nav-button.logout:hover {
+  background: var(--hover-color);
+  border-color: var(--hover-color);
+}
+
+

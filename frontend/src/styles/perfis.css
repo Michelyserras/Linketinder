@@ -1,0 +1,282 @@
+:root {
+  --font: "Inter", sans-serif;
+  --primary-color: #000;
+  --secondary-color: #646161;
+  --terciary-color: #5f9ea0;
+  --text-color: #ffffff;
+  --hover-color: #71b8bb;
+  --hover-color2: #646161a9;
+}
+
+.PerfilContainer {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  background: var(--text-color);
+  box-sizing: border-box;
+}
+
+.PerfilContainer h1 {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.perfil-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-item {
+  margin-bottom: 1.5rem;
+}
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.info-value {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.perfil-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.perfil-actions button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: var(--terciary-color);
+  color: var(--text-color);
+}
+
+.perfil-actions button:hover {
+  background: var(--hover-color);
+}
+
+/* Estilo para o último botão (Sair) */
+.perfil-actions button:last-child {
+  background: var(--secondary-color);
+}
+
+.perfil-actions button:last-child:hover {
+  background: var(--hover-color2);
+}
+
+.back-button {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--terciary-color);
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.back-button:hover {
+  background: var(--hover-color);
+  transform: scale(1.05);
+}
+
+
+/*vagas*/ 
+.vagas-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.vagas-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.vagas-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vaga-item {
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.vaga-titulo {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.vaga-empresa {
+  color: var(--terciary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.vaga-detalhes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.vaga-detalhe {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vaga-detalhe strong {
+  color: var(--secondary-color);
+}
+
+.vaga-descricao {
+  color: var(--primary-color);
+  line-height: 1.4;
+  margin-top: 1rem;
+  border-top: 1px solid #e1e5e9;
+  padding-top: 1rem;
+}
+
+.vaga-competencias {
+  margin-top: 1rem;
+}
+
+.vaga-competencias strong {
+  color: var(--secondary-color);
+}
+
+.competencias-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.competencia-tag {
+  color: var(--secondary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.sem-vagas {
+  text-align: center;
+  color: var(--secondary-color);
+  font-style: italic;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px dashed #e1e5e9;
+}
+
+.grafico-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e1e5e9;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grafico-container h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.grafico-vazio {
+  text-align: center;
+  color: var(--secondary-color);
+  font-style: italic;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .PerfilContainer {
+    padding: 1rem;
+    padding-top: 4rem;
+  }
+
+  .perfil-info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .vagas-lista {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .perfil-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .perfil-actions button {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .chart-wrapper {
+    height: 300px;
+  }
+}

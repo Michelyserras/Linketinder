@@ -24,7 +24,7 @@ export function navBar() {
 
     const link = nav.querySelector('#logo a');
     link?.addEventListener('click', (e) => {
-    e.preventDefault();
+        e.preventDefault();
         mostrarTelaPrincipal(app);
     });
 
@@ -71,7 +71,7 @@ export function mainContent() {
     `
 
     const btnCadastroEmpresa = div.querySelector('.btn-empresa');
-    btnCadastroEmpresa?.addEventListener('click', () => {  
+    btnCadastroEmpresa?.addEventListener('click', () => {
         mostrarTelaCadastroEmpresa(app);
     });
 
@@ -80,7 +80,7 @@ export function mainContent() {
         mostrarTelaCadastroCandidato(app);
     });
 
-    const btnLoginCandidato = div.querySelector('.btn-login-candidato');    
+    const btnLoginCandidato = div.querySelector('.btn-login-candidato');
     btnLoginCandidato?.addEventListener('click', () => {
         mostrarTelaLoginCandidato(app);
     });
@@ -89,8 +89,58 @@ export function mainContent() {
     btnLoginEmpresa?.addEventListener('click', () => {
         mostrarTelaLoginEmpresa(app);
     });
-    
+
     return div;
+}
+
+export function navbarLogado(tipoUsuario: 'candidato' | 'empresa' = 'candidato') {
+    const navbar = document.createElement('nav');
+    navbar.className = 'navbar';
+
+    const nomeUsuario = tipoUsuario === 'candidato' ? 'Candidato' : 'Empresa';
+
+    navbar.innerHTML = `
+        <div class="navbar-brand">
+            <h1>Linketinder</h1>
+        </div>
+        
+        <div class="navbar-menu">
+            <span class="user-info">Olá, ${nomeUsuario}!</span>
+            <button id="perfil-btn" class="nav-button">Meu Perfil</button>
+            <button id="logout-btn" class="nav-button logout">Sair</button>
+        </div>
+    `;
+
+    return navbar;
+}
+
+export function getNavbar(isLoggedIn: boolean = false, tipoUsuario: 'candidato' | 'empresa' = 'candidato') {
+    if (isLoggedIn) {
+        return navbarLogado(tipoUsuario);
+    } else {
+        return navBar();
+    }
+}
+
+// Função para adicionar event listeners ao navbar logado
+export function setupNavbarLogado() {
+    const perfilBtn = document.getElementById('perfil-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    if (perfilBtn) {
+        perfilBtn.addEventListener('click', () => {
+            // Aqui você pode navegar para a página de perfil
+            console.log('Ir para perfil');
+        });
+    }
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            // Aqui você pode implementar a lógica de logout
+            console.log('Fazer logout');
+            // Exemplo: limpar localStorage, redirecionar para home, etc.
+        });
+    }
 }
 
 

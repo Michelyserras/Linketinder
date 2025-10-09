@@ -35,10 +35,12 @@ class Empresa extends Pessoa {
         this.vagas = vagas;
     }
 
-    
 
-    curtidas():number{
+
+    curtidas(): number {
         return 0;
     }
 
 }
+
+export default Empresa;
