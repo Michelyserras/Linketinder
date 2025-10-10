@@ -114,33 +114,13 @@ export function navbarLogado(tipoUsuario: 'candidato' | 'empresa' = 'candidato')
     return navbar;
 }
 
-export function getNavbar(isLoggedIn: boolean = false, tipoUsuario: 'candidato' | 'empresa' = 'candidato') {
-    if (isLoggedIn) {
+export function getNavbar(estaLogado: boolean = false, tipoUsuario: 'candidato' | 'empresa' = 'candidato') {
+    if (estaLogado) {
         return navbarLogado(tipoUsuario);
     } else {
         return navBar();
     }
 }
 
-// Função para adicionar event listeners ao navbar logado
-export function setupNavbarLogado() {
-    const perfilBtn = document.getElementById('perfil-btn');
-    const logoutBtn = document.getElementById('logout-btn');
-
-    if (perfilBtn) {
-        perfilBtn.addEventListener('click', () => {
-            // Aqui você pode navegar para a página de perfil
-            console.log('Ir para perfil');
-        });
-    }
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            // Aqui você pode implementar a lógica de logout
-            console.log('Fazer logout');
-            // Exemplo: limpar localStorage, redirecionar para home, etc.
-        });
-    }
-}
 
 

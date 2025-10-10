@@ -74,7 +74,6 @@ export function loginCandidato() {
 }
 
 export function candidatoPerfil() {
-    // Carregar dados se ainda não foram carregados
     DataService.carregarDados();
 
     let nomeCandidato = 'Não informado';
@@ -91,20 +90,17 @@ export function candidatoPerfil() {
 
         nomeCandidato = candidato.Nome || candidato.nome || 'Não informado';
         emailCandidato = candidato.Email || candidato.email || 'Não informado';
-        // Usar método se disponível, senão usar propriedade direta
         cpfCandidato = (typeof candidato.getCpf === 'function' ? candidato.getCpf() : candidato.cpf) || 'Não informado';
-        // Usar método se disponível, senão usar propriedade direta
         idadeCandidato = (typeof candidato.getIdade === 'function' ? candidato.getIdade() : candidato.idade);
         idadeCandidato = idadeCandidato ? `${idadeCandidato} anos` : 'Não informado';
         cepCandidato = candidato.Cep || candidato.cep || 'Não informado';
         estadoCandidato = candidato.Estado || candidato.estado || 'Não informado';
         descricaoCandidato = candidato.Descricao || candidato.descricao || 'Não informado';
-        // Usar método se disponível, senão usar propriedade direta
         const competencias = (typeof candidato.getCompetencias === 'function' ? candidato.getCompetencias() : candidato.competencias);
         competenciasCandidato = competencias ? competencias.join(', ') : 'Não informado';
     }
 
-    // Buscar todas as vagas disponíveis
+  
     const todasAsVagas = DataService.buscarTodasAsVagas();
     let vagasHtml = '';
 

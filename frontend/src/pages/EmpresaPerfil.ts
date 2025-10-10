@@ -3,7 +3,7 @@ import { DataService } from '../services/DataService';
 import { gerarGraficoCompetencias } from '../components/grafico';
 
 export function empresaPerfil() {
-    // Carregar dados se ainda não foram carregados
+    
     DataService.carregarDados();
 
     let nomeEmpresa = 'Não informado';

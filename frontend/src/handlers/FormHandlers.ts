@@ -3,10 +3,11 @@ import Empresa from '../models/Empresa';
 import Vaga from '../models/Vaga';
 import { DataService } from '../services/DataService';
 import { mostrarTelaLoginCandidato, mostrarTelaLoginEmpresa, mostrarTelaPrincipal, mostrarPerfilCandidato, mostrarPerfilEmpresa } from '../pages/MostrarTela';
+import * as validators from './validacao';
 
 
 function formatarCompetencias(competenciasString: string): string[] {
-    return competenciasString.split(',').map(c => c.trim()).filter(c => c.length > 0);
+    return competenciasString.split(',').map(competencia => competencia.trim()).filter(competencia => competencia.length > 0);
 }
 
 
@@ -25,6 +26,13 @@ export function processarCadastroCandidato(): void {
     const estado = (document.getElementById('estado') as HTMLInputElement).value;
     const descricao = (document.getElementById('descricao') as HTMLInputElement).value;
     const competenciasString = (document.getElementById('habilidades') as HTMLInputElement).value;
+
+
+    if (!validators.validarNome(nome)) { alert('Nome inválido. Use apenas letras e espaços (mín. 2 caracteres).'); return; }
+    if (!validators.validarEmail(email)) { alert('E-mail inválido.'); return; }
+    if (!validators.validarCPF(cpf)) { alert('CPF inválido.'); return; }
+    if (!validators.validarCEP(cep)) { alert('CEP inválido.'); return; }
+    if (!validators.validarListaHabilidades(competenciasString)) { alert('Habilidades inválidas. Separe por vírgula e use caracteres válidos.'); return; }
 
     const competencias = formatarCompetencias(competenciasString);
 
@@ -62,6 +70,12 @@ export function processarCadastroEmpresa(): void {
     const pais = (document.getElementById('pais') as HTMLInputElement).value;
     const descricao = (document.getElementById('descricao') as HTMLInputElement).value;
 
+    
+    if (!validators.validarNome(nome)) { alert('Nome inválido. Use apenas letras e espaços (mín. 2 caracteres).'); return; }
+    if (!validators.validarEmail(email)) { alert('E-mail inválido.'); return; }
+    if (!validators.validarCNPJ(cnpj)) { alert('CNPJ inválido.'); return; }
+    if (!validators.validarCEP(cep)) { alert('CEP inválido.'); return; }
+
     const empresa = new Empresa(
         DataService.gerarId(),
         nome,
@@ -74,7 +88,7 @@ export function processarCadastroEmpresa(): void {
         []
     );
 
-    
+
     (empresa as any).senha = senha;
 
     if (DataService.salvarEmpresa(empresa)) {
