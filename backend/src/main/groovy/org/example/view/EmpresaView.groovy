@@ -1,20 +1,19 @@
 package org.example.view
 
-import org.example.Controller.PessoaFisicaController
-import org.example.Model.PessoaFisica
+import org.example.Controller.EmpresaController
+import org.example.Model.Empresa
 
-class PessoaFisicaView {
-    private PessoaFisicaController candidatoController = new PessoaFisicaController()
+class EmpresaView {
+    private EmpresaController empresaController = new EmpresaController()
     static scanner = new Scanner(System.in)
 
-
-    void menuPessoaFisica() {
+    void menuEmpresa() {
         Scanner scanner = new Scanner(System.in)
 
         while (true) {
             println """
-        1 - Cadastrar Pessoa Fisica
-        2 - Listar Pessoas Fisicas
+        1 - Cadastrar Pessoa Juridica
+        2 - Listar Pessoas Juridicas
         3 - Voltar
         """
 
@@ -31,11 +30,11 @@ class PessoaFisicaView {
             switch (opcao) {
                 case 1:
                     limpaTela()
-                    cadastrarCandidato()
+                    cadastrarEmpresa()
                     break
                 case 2:
                     limpaTela()
-                    listarCandidatos()
+                    listarEmpresas()
                     break
                 case 3:
                     limpaTela()
@@ -47,9 +46,8 @@ class PessoaFisicaView {
     }
 
 
-    void cadastrarCandidato(){
-        String nome, descricao, cpf, email,  cep, estado
-        int idade
+    void cadastrarEmpresa(){
+        String nome, descricao, cnpj, pais, email,  cep, estado
         List<String> competencias = new ArrayList<>()
 
         println "Digite o nome: "
@@ -62,30 +60,30 @@ class PessoaFisicaView {
         estado = scanner.nextLine()
         println "Digite a descricao: "
         descricao = scanner.nextLine()
-        println "Digite o cpf: "
-        cpf = scanner.nextLine()
-        println "Digite a idade: "
-        idade = Integer.parseInt(scanner.nextLine())
+        println "Digite o cnpj: "
+        cnpj = scanner.nextLine()
+        println "Digite o pais: "
+        pais = scanner.nextLine()
         for(int i = 0; i < 3; i++){
             println "Digite a competencia ${i+1}: "
             String competencia = scanner.nextLine()
             competencias.add(competencia)
         }
 
+        Empresa empresa =  new Empresa(nome, email, cep, estado, descricao, cnpj, pais, competencias)
         try {
-            PessoaFisica candidato = new PessoaFisica(nome, email, cep, estado, descricao, cpf, idade, competencias)
-            candidatoController.cadastrarPessoaFisica(candidato)
-            println "Candidato cadastrado com sucesso!"
+            empresaController.cadastrarEmpresa(empresa)
+            println "Pessoa Juridica cadastrada com sucesso!"
         } catch (Exception e) {
-            println "Erro ao cadastrar candidato: ${e.message}"
+            println "Erro ao cadastrar Pessoa Juridica: ${e.message}"
         }
     }
 
-    void listarCandidatos(){
-        try {
-            candidatoController.listarPessoaFisica()
+    void listarEmpresas(){
+        try{
+             empresaController.listarEmpresa()
         } catch (Exception e) {
-            println "Erro ao listar candidatos: ${e.message}"
+            println "Erro ao listar Pessoas Juridicas: ${e.message}"
         }
     }
 
@@ -94,5 +92,6 @@ class PessoaFisicaView {
             println ""
         }
     }
+
 
 }
