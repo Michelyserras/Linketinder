@@ -1,7 +1,3 @@
-CREATE TABLE pais (
-  id SERIAL PRIMARY KEY,
-  nome VARCHAR(45) NOT NULL
-);
 
 CREATE TABLE candidato (
   id SERIAL PRIMARY KEY,
@@ -10,10 +6,9 @@ CREATE TABLE candidato (
   cpf VARCHAR(11) NOT NULL,
   estado VARCHAR(2) NOT NULL,
   cep VARCHAR(8) NOT NULL,
-  id_pais INTEGER NOT NULL,
+  pais VARCHAR(45) NOT NULL,
   descricao TEXT NOT NULL,
   senha VARCHAR(30) NOT NULL,
-  FOREIGN KEY (id_pais) REFERENCES pais (id)
 );
 
 CREATE TABLE empresa (
@@ -21,15 +16,15 @@ CREATE TABLE empresa (
   nome VARCHAR(40) NOT NULL,
   estado VARCHAR(2) NOT NULL,
   cep VARCHAR(8) NOT NULL,
-  id_pais INTEGER NOT NULL,
-  senha VARCHAR(30) NOT NULL,
-  FOREIGN KEY (id_pais) REFERENCES pais (id)
+  pais VARCHAR(45) NOT NULL,
+  senha VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE vaga (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(20) NOT NULL,
   descricao TEXT NOT NULL,
+  localidade VARCHAR(50) NOT NULL,
   id_empresa INTEGER NOT NULL,
   FOREIGN KEY (id_empresa) REFERENCES empresa (id)
 );
