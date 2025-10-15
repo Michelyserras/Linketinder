@@ -1,11 +1,11 @@
 
-INSERT INTO empresa (nome, estado, cep, pais, email, senha)
+INSERT INTO empresa (nome, cnpj, estado, cep, pais, email, senha)
 VALUES
-('Raimon Sports', 'SP', '01000000', 'Japão', 'contato@raimonsports.com', 'raimon11'),
-('Royal Academy Corp', 'RJ', '20000000', 'Japão', 'contato@royalacademy.com', 'royal999'),
-('Polaris Training', 'MG', '30000000', 'Japão', 'contato@polaristraining.com', 'aurora'),
-('Inazuma Japan FC', 'RS', '90000000', 'Japão', 'contato@inazumajapanfc.jp', 'japan2025'),
-('Zeus Enterprises', 'BA', '40000000', 'Japão', 'contato@zeusenterprises.com', 'lightning');
+('Raimon Sports', '12345678000190', 'SP', '01000000', 'Japão', 'contato@raimonsports.com', 'raimon11'),
+('Royal Academy Corp', '22345678000191', 'RJ', '20000000', 'Japão', 'contato@royalacademy.com', 'royal999'),
+('Polaris Training', '32345678000192', 'MG', '30000000', 'Japão', 'contato@polaristraining.com', 'aurora'),
+('Inazuma Japan FC', '42345678000193', 'RS', '90000000', 'Japão', 'contato@inazumajapanfc.com', 'japan2025'),
+('Zeus Enterprises', '52345678000194', 'BA', '40000000', 'Japão', 'contato@zeusenterprises.com', 'lightning');
 
 
 INSERT INTO candidato (nome, sobrenome, cpf, estado, cep, pais, descricao, email, senha)
