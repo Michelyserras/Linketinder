@@ -1,12 +1,12 @@
 package org.example.Model
 
-class PessoaJuridica extends Pessoa {
+class Empresa extends Pessoa {
     static int count = 0
     String cnpj
     String pais
     List<String> competencias = new ArrayList<>()
 
-    PessoaJuridica(String nome, String email, String cep, String estado, String descricao, String cnpj, String pais, List<String> competencias) {
+    Empresa(String nome, String email, String cep, String estado, String descricao, String cnpj, String pais, List<String> competencias) {
         super(nome, email, cep, estado, descricao)
         this.setId(count += 1);
         this.cnpj = cnpj

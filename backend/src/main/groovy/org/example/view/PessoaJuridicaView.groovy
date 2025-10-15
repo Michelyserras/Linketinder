@@ -1,10 +1,10 @@
 package org.example.view
 
-import org.example.Controller.PessoaJuridicaController
-import org.example.Model.PessoaJuridica
+import org.example.Controller.EmpresaController
+import org.example.Model.Empresa
 
 class PessoaJuridicaView {
-    private PessoaJuridicaController pessoaJuridicaController = new PessoaJuridicaController()
+    private EmpresaController pessoaJuridicaController = new EmpresaController()
     static scanner = new Scanner(System.in)
 
     void menuPessoaJuridica() {
@@ -70,7 +70,7 @@ class PessoaJuridicaView {
             competencias.add(competencia)
         }
 
-        PessoaJuridica pessoaJuridica =  new PessoaJuridica(nome, email, cep, estado, descricao, cnpj, pais, competencias)
+        Empresa pessoaJuridica =  new Empresa(nome, email, cep, estado, descricao, cnpj, pais, competencias)
         try {
             pessoaJuridicaController.cadastrarPessoaJuridica(pessoaJuridica)
             println "Pessoa Juridica cadastrada com sucesso!"

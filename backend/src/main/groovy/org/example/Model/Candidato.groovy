@@ -1,13 +1,13 @@
 package org.example.Model
 
-class PessoaFisica extends Pessoa{
+class Candidato extends Pessoa{
     static int count = 0
     String cpf
     int idade
     List<String> competencias = new ArrayList<>()
 
 
-    PessoaFisica(String nome, String email, String cep, String estado, String descricao, String cpf, int idade, List<String> competencias) {
+    Candidato(String nome, String email, String cep, String estado, String descricao, String cpf, int idade, List<String> competencias) {
         super(nome, email, cep, estado, descricao)
         this.setId(count += 1);
         this.cpf = cpf
