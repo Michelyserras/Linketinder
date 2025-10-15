@@ -4,6 +4,7 @@ CREATE TABLE candidato (
   nome VARCHAR(40) NOT NULL,
   sobrenome VARCHAR(120) NOT NULL,
   cpf VARCHAR(11) NOT NULL,
+  idade NUMBER(2) NOT NULL,
   estado VARCHAR(2) NOT NULL,
   cep VARCHAR(8) NOT NULL,
   pais VARCHAR(45) NOT NULL,
@@ -19,6 +20,7 @@ CREATE TABLE empresa (
   estado VARCHAR(2) NOT NULL,
   cep VARCHAR(8) NOT NULL,
   pais VARCHAR(45) NOT NULL,
+  descricao TEXT NOT NULL,
   email VARCHAR(100), NOT NULL,
   senha VARCHAR(30) NOT NULL
 );
