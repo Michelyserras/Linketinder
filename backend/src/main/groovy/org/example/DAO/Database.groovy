@@ -10,7 +10,7 @@ class Database {
     static final String user = 'postgres'
     static final String password = 'postgres'
 
-    public Connection getConnection(){
+    static Connection getConnection(){
         if(conn == null){
             conn = DriverManager.getConnection(url,user,password);
             println 'conectado com o banco';

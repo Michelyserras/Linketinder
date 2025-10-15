@@ -7,14 +7,17 @@ abstract class Pessoa {
     String cep
     String estado
     String descricao
+    String senha
 
-
-    Pessoa(String nome, String email, String cep, String estado, String descricao) {
+    Pessoa(){}
+    Pessoa(String nome, String email, String cep, String estado, String descricao, String senha) {
         this.nome = nome
         this.email = email
         this.cep = cep
         this.estado = estado
         this.descricao = descricao
+        this.senha = senha
     }
+
     def curtidas(){}
 }

@@ -4,14 +4,14 @@ class Empresa extends Pessoa {
     static int count = 0
     String cnpj
     String pais
-    List<String> competencias = new ArrayList<>()
+    List<Vaga> vagas = new ArrayList<>()
 
-    Empresa(String nome, String email, String cep, String estado, String descricao, String cnpj, String pais, List<String> competencias) {
-        super(nome, email, cep, estado, descricao)
+    Empresa(String nome, String email, String cep, String estado, String descricao, String senha,  String cnpj, String pais, List<Vaga> vagas) {
+        super(nome, email, cep, estado, descricao, senha)
         this.setId(count += 1);
         this.cnpj = cnpj
         this.pais = pais
-        this.competencias = competencias
+        this.vagas = vagas
     }
 
     @Override
