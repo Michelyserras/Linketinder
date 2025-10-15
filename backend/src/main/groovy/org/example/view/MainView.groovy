@@ -2,8 +2,8 @@ package org.example.view
 
 class MainView {
     Scanner scanner = new Scanner(System.in)
-    PessoaFisicaView pessoaFisicaView = new PessoaFisicaView()
-    PessoaJuridicaView pessoaJuridicaView = new PessoaJuridicaView()
+    CandidatoView pessoaFisicaView = new CandidatoView()
+    EmpresaView pessoaJuridicaView = new EmpresaView()
 
     void menu() {
         while (true) {

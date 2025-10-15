@@ -11,13 +11,12 @@ repositories {
 
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:2.5.23'
+    implementation 'org.postgresql:postgresql:42.7.3'
 
-    // JUnit 5
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    // Spock compatível com Groovy 2.5
     testImplementation 'org.spockframework:spock-core:2.2-groovy-2.5'
     testImplementation 'net.bytebuddy:byte-buddy:1.14.18'
 
