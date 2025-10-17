@@ -20,4 +20,6 @@ abstract class Pessoa {
     }
 
     def curtidas(){}
+
+
 }

@@ -13,8 +13,8 @@ class CandidatoView {
 
         while (true) {
             println """
-        1 - Cadastrar Pessoa Fisica
-        2 - Listar Pessoas Fisicas
+        1 - Cadastrar Candidato
+        2 - Listar Candidatos
         3 - Voltar
         """
 
@@ -34,8 +34,8 @@ class CandidatoView {
                     cadastrarCandidato()
                     break
                 case 2:
-                    limpaTela()
-                    listarCandidatos()
+//                    limpaTela()
+//                    listarCandidatos()
                     break
                 case 3:
                     limpaTela()

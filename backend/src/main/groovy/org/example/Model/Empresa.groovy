@@ -4,15 +4,16 @@ class Empresa extends Pessoa {
     static int count = 0
     String cnpj
     String pais
-    List<Vaga> vagas = new ArrayList<>()
+    List<Vaga> vagas = []
 
-    Empresa(String nome, String email, String cep, String estado, String descricao, String senha,  String cnpj, String pais, List<Vaga> vagas) {
+    Empresa(String nome, String cnpj, String estado, String cep, String pais, String descricao, String email, String senha,List<Vaga> vagas) {
         super(nome, email, cep, estado, descricao, senha)
-        this.setId(count += 1);
         this.cnpj = cnpj
         this.pais = pais
         this.vagas = vagas
     }
+
+    Empresa() {}
 
     @Override
     def curtidas(){

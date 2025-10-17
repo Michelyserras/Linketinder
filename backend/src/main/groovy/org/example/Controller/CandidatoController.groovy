@@ -1,21 +1,18 @@
 package org.example.Controller
 
 import org.example.Model.Candidato
+import org.example.Service.CandidatoService
 
 
 class CandidatoController {
-    static  List<Candidato> candidatos = []
+    CandidatoService candidatoService
 
     public CandidatoController(){
         inicializarCandidatos()
     }
 
-   void cadastrarCandidato(Candidato pf){
-        if( pf.nome.trim().isEmpty() || pf.email.trim().isEmpty() ||  pf.cpf.trim().isEmpty() || pf.idade <= 0
-        || pf.cep.trim().isEmpty() || pf.estado.trim().isEmpty() || pf.descricao.trim().isEmpty()){
-            throw new Exception("Todos os campos devem ser preenchidos corretamente.")
-        }
-        candidatos.add(pf)
+   void cadastrarCandidato(Candidato candidato){
+        candidatoService.cadastrarCandidato(candidato)
     }
 
     void listarCandidato() {
