@@ -1,5 +1,5 @@
 
-CREATE TABLE candidato (
+CREATE TABLE IF NOT EXISTS candidato (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(40) NOT NULL,
   sobrenome VARCHAR(120) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE candidato (
   senha VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE empresa (
+CREATE TABLE IF NOT EXISTS empresa (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(40) NOT NULL,
   cnpj VARCHAR(14) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE empresa (
   senha VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE vaga (
+CREATE TABLE IF NOT EXISTS vaga (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(20) NOT NULL,
   descricao TEXT NOT NULL,
@@ -34,12 +34,12 @@ CREATE TABLE vaga (
   FOREIGN KEY (id_empresa) REFERENCES empresa (id)
 );
 
-CREATE TABLE competencias (
+CREATE TABLE IF NOT EXISTS competencias (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE competencias_vaga (
+CREATE TABLE IF NOT EXISTS competencias_vaga (
   id SERIAL PRIMARY KEY,
   id_vaga INTEGER NOT NULL,
   id_competencia INTEGER NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE competencias_vaga (
   FOREIGN KEY (id_competencia) REFERENCES competencias (id)
 );
 
-CREATE TABLE competencias_candidatos (
+CREATE TABLE IF NOT EXISTS competencias_candidatos (
   id SERIAL PRIMARY KEY,
   id_candidato INTEGER NOT NULL,
   id_competencia INTEGER NOT NULL,

@@ -4,7 +4,7 @@ package org.example.Controller
 import org.example.Model.Empresa
 
 class EmpresaController {
-   static List<Empresa> empresas = []
+   /*static List<Empresa> empresas = []
 
     public EmpresaController(){
         inicializarEmpresas()
@@ -35,5 +35,5 @@ class EmpresaController {
         empresas.add(new Empresa("Tech Solutions", "contato@techsolutions.com", "Brasil", "MG", "33333-333", "Consultoria de TI", "34567890000103", ["Python", "SQL"]))
         empresas.add(new Empresa("EducaMais", "contato@educamais.com", "Brasil", "RS", "44444-444", "Educação online", "45678901000104", ["Java", "Spring Framework"]))
         empresas.add(new Empresa("Finanças Fáceis", "contato@financasfaceis.com", "Brasil", "BA", "55555-555", "Fintech", "56789012000105", ["Python", "Java"]))
-    }
+    }*/
 }

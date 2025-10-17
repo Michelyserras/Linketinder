@@ -2,8 +2,8 @@ package org.example.view
 
 class MainView {
     Scanner scanner = new Scanner(System.in)
-    CandidatoView pessoaFisicaView = new CandidatoView()
-    EmpresaView pessoaJuridicaView = new EmpresaView()
+    CandidatoView candidatoView= new CandidatoView()
+
 
     void menu() {
         while (true) {
@@ -26,19 +26,19 @@ class MainView {
             switch (opcao) {
                 case 1:
                     limpaTela()
-                    pessoaFisicaView.menuPessoaFisica()
+                    candidatoView.menuCandidato()
                     break
+//                case 2:
+//                    limpaTela()
+//                    empresaView.menuEmpresa()
+//                    break
                 case 2:
-                    limpaTela()
-                    pessoaJuridicaView.menuPessoaJuridica()
-                    break
-                case 3:
                     limpaTela()
                     println "Saindo..."
                     System.exit(0)
                     break
                 default:
-                    println "Opcao invalida! Digite 1, 2 ou 3."
+                    println "Opcao invalida! Digite 1 ou 2."
             }
 
 

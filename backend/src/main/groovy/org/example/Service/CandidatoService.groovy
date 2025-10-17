@@ -10,20 +10,39 @@ class CandidatoService {
 
         if(!candidato){
             println("Todos os campos são obrigatórios")
-            return null;
+            return
         }
         if(!candidato.validacao()){
             println "Erro ao cadastrar candidato"
-            return null
+            return
         }
-
         try{
-            candidatoDAO.criarCandidato(candidato)
+           return candidatoDAO.criarCandidato(candidato)
         }catch(Exception e){
-            println "Erro: ${e.getMessage()}"
+            println "Erro: ${e.getStackTrace()}"
+        }
+    }
+
+    List<Candidato> listarCandidato() {
+        try{
+            def candidatos = candidatoDAO.listarCandidatos()
+
+            if (candidatos.isEmpty()){
+                throw new Exception("Nenhum candidato cadastrado.")
+            } else{
+                candidatos.each {candidato ->
+                    println ""
+                    println candidato.toString()
+                    println ""
+                }
+            }
+            return candidatos
+        }catch (Exception e){
+            println "${e.getMessage()}"
         }
 
     }
+
 
 
 }

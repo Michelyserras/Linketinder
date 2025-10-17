@@ -2,6 +2,7 @@ package org.example.DAO
 
 import org.example.Model.Candidato
 import org.example.Model.Empresa
+import org.example.Model.Vaga
 
 import java.sql.Connection
 import java.sql.PreparedStatement
@@ -77,22 +78,25 @@ class EmpresaDAO {
     List<Empresa> listarEmpresas(){
         String query = ''' SELECT * FROM empresa;'''
         def empresas = []
+        def vagaDao = new VagaDAO()
+
 
         try{
             conn.prepareStatement(query).withCloseable {ps ->
                ResultSet rs = ps.executeQuery()
                     while (rs.next()){
+                        List<Vaga> vagas = vagaDao.listarVagas(rs.getInt("id"))
                         empresas.add(new Empresa(
-                                rs.getInt("id"),
-                                rs.getString("nome"),
-                                rs.getString("cnpj"),
-                                rs.getString("estado"),
-                                rs.getString("cep"),
-                                rs.getString("pais"),
-                                rs.getString("descricao"),
-                                rs.getString("email"),
-                                rs.getString("senha"),
-                                rs.getArray("vagas")
+                                id: rs.getInt("id"),
+                                nome: rs.getString("nome"),
+                                cnpj: rs.getString("cnpj"),
+                                estado: rs.getString("estado"),
+                                cep: rs.getString("cep"),
+                                pais: rs.getString("pais"),
+                                descricao: rs.getString("descricao"),
+                                email: rs.getString("email"),
+                                senha: rs.getString("senha"),
+                                vagas: vagas
                         ))
                     }
                     return empresas

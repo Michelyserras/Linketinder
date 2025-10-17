@@ -135,8 +135,45 @@ class CompetenciasDAO {
         }catch (SQLException sql){
             println("Erro ao listar competências do candidato");
         }
-
     }
 
+    List<Competencia> listarTodasCompetencias(){
+        String query = ''' SELECT * FROM competencias;'''
+        def competencias = []
+
+        try{
+            conn.prepareStatement(query).withCloseable {ps ->
+               ResultSet rs = ps.executeQuery()
+                while(rs.next()){
+                    competencias.add(new Competencia(id:rs.getInt("id"), nome:rs.getString("nome")))
+                }
+                rs.close()
+                return competencias
+
+            }
+
+        }catch (SQLException sql){
+            throw new SQLException("Erro ao listar competencias: ${sql}")
+        }
+    }
+
+
+    def buscarCompetenciaPorID(int id){
+        String query = '''SELECT * FROM competencias WHERE id=?'''
+
+        try{
+            conn.prepareStatement(query).withCloseable {ps->
+                ps.setInt(1, id)
+                ResultSet rs = ps.executeQuery()
+                if(rs.next()){
+                    return new Competencia(id: rs.getInt("id", nome: rs.getString("nome")))
+                }else{
+                    return null
+                }
+            }
+        }catch (SQLException sql){
+            println("Erro ao buscar competência: ${sql} ")
+        }
+    }
 
 }

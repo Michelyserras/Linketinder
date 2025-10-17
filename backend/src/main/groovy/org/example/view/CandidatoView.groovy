@@ -1,11 +1,20 @@
 package org.example.view
 
 import org.example.Controller.CandidatoController
+import org.example.Controller.CompetenciaController
 import org.example.Model.Candidato
 
 class CandidatoView {
-    private CandidatoController candidatoController = new CandidatoController()()
+    CandidatoController candidatoController = new CandidatoController()
+    CompetenciaController competenciaController = new CompetenciaController()
+    CompetenciaView competenciaView = new CompetenciaView()
     static scanner = new Scanner(System.in)
+
+//    CandidatoView(CandidatoController candidatoController, CompetenciaController competenciaController){
+//        this.candidatoController = candidatoController
+//        this.competenciaController = competenciaController
+//    }
+//
 
 
     void menuCandidato() {
@@ -34,8 +43,8 @@ class CandidatoView {
                     cadastrarCandidato()
                     break
                 case 2:
-//                    limpaTela()
-//                    listarCandidatos()
+                     limpaTela()
+                     listarCandidatos()
                     break
                 case 3:
                     limpaTela()
@@ -48,14 +57,20 @@ class CandidatoView {
 
 
     void cadastrarCandidato(){
-        String nome, descricao, cpf, email,  cep, estado
+        String nome, descricao, cpf, email,  cep, estado, senha, sobrenome, pais
         int idade
-        List<String> competencias = new ArrayList<>()
+
 
         println "Digite o nome: "
         nome = scanner.nextLine()
+        println "Digite o sobrenome: "
+        sobrenome = scanner.nextLine()
         println "Digite o email: "
         email = scanner.nextLine()
+        println "Digite a senha: "
+        senha = scanner.nextLine()
+        println "Digite o pais: "
+        pais = scanner.nextLine()
         println "Digite o cep: "
         cep = scanner.nextLine()
         println "Digite o estado: "
@@ -66,15 +81,35 @@ class CandidatoView {
         cpf = scanner.nextLine()
         println "Digite a idade: "
         idade = Integer.parseInt(scanner.nextLine())
-        for(int i = 0; i < 3; i++){
-            println "Digite a competencia ${i+1}: "
-            String competencia = scanner.nextLine()
-            competencias.add(competencia)
-        }
+
+    Candidato candidato = new Candidato()
+
+    candidato.setNome(nome)
+        candidato.setSobrenome(sobrenome)
+        candidato.setEmail(email)
+        candidato.setSenha(senha)
+        candidato.setPais(pais)
+        candidato.setIdade(idade)
+        candidato.setCep(cep)
+        candidato.setEstado(estado)
+        candidato.setDescricao(descricao)
+        candidato.setCpf(cpf)
 
         try {
-             Candidatocandidato = new Candidato(nome, email, cep, estado, descricao, cpf, idade, competencias)
-            candidatoController.cadastra Candidato(candidato)
+            def c = candidatoController.cadastrarCandidato(candidato)
+            if (c == null) {
+                println "Erro ao cadastrar candidato: retorno nulo"
+                return
+            }
+
+
+            def competencias = competenciaView.escolherCompetencia(c.getId())
+            if (competencias != null) {
+                competencias.forEach { comp ->
+                    competenciaController.adicionarCompetenciaAoCandidato(c.id, comp.id)
+                }
+            }
+
             println "Candidato cadastrado com sucesso!"
         } catch (Exception e) {
             println "Erro ao cadastrar candidato: ${e.message}"
@@ -83,7 +118,7 @@ class CandidatoView {
 
     void listarCandidatos(){
         try {
-            candidatoController.lista Candidato()
+            candidatoController.listarCandidatos()
         } catch (Exception e) {
             println "Erro ao listar candidatos: ${e.message}"
         }

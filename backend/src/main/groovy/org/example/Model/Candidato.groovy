@@ -8,7 +8,7 @@ class Candidato extends Pessoa{
     List<Competencia> competencias = new ArrayList<>()
 
 
-    Candidato(String nome, String sobrenome, String cpf, int idade, String estado, String cep, String pais, String descricao, String email, String senha, List<String> competencias) {
+    Candidato(String nome, String sobrenome, String cpf, int idade, String estado, String cep, String pais, String descricao, String email, String senha, List<Competencia> competencias) {
         super(nome, email, cep, estado, descricao, senha)
         this.cpf = cpf
         this.sobrenome = sobrenome
@@ -19,98 +19,97 @@ class Candidato extends Pessoa{
 
     Candidato() {}
 
+    List<Competencia> getCompetencias(){
+        return competencias
+    }
 
-    def boolean validacao() {
-            nome = nome.trim();
+
+
+    boolean validacao() {
+            nome = (nome ?: '').trim()
             if (nome.isEmpty() || nome.length() > 40 || nome.length() < 2) {
                 System.out.println("O campo nome deve ter entre 2 e 40 caracteres.");
-                return false;
+                return false
             }
 
-            sobrenome = sobrenome.trim();
+            sobrenome = (sobrenome ?: '').trim()
             if (sobrenome.isEmpty() || sobrenome.length() > 120 || sobrenome.length() < 2) {
                 System.out.println("O campo sobrenome deve ter entre 2 e 120 caracteres.");
-                return false;
+                return false
             }
 
 
-            cpf = cpf.trim();
+            cpf = (cpf ?: '').trim()
             if (cpf.length() != 11) {
                 System.out.println("O campo CPF deve conter exatamente 11 dígitos.");
-                return false;
+                return false
             }
             for (int i = 0; i < cpf.length(); i++) {
                 if (!Character.isDigit(cpf.charAt(i))) {
                     System.out.println("O campo CPF deve conter apenas números.");
-                    return false;
+                    return false
                 }
             }
 
 
             if (idade < 0 || idade > 99) {
                 System.out.println("O campo idade deve estar entre 0 e 99.");
-                return false;
+                return false
             }
 
 
-            estado = estado.trim().toUpperCase();
+            estado = (estado ?: '').trim().toUpperCase()
             if (estado.length() != 2) {
                 System.out.println("O campo estado deve ter exatamente 2 letras (UF).");
-                return false;
+                return false
             }
             for (int i = 0; i < estado.length(); i++) {
                 if (!Character.isLetter(estado.charAt(i))) {
                     System.out.println("O campo estado deve conter apenas letras.");
-                    return false;
+                    return false
                 }
             }
 
 
-            cep = cep.trim();
+            cep = (cep ?: '').trim()
             if (cep.length() != 8) {
                 System.out.println("O campo CEP deve conter exatamente 8 dígitos.");
-                return false;
+                return false
             }
             for (int i = 0; i < cep.length(); i++) {
                 if (!Character.isDigit(cep.charAt(i))) {
                     System.out.println("O campo CEP deve conter apenas números.");
-                    return false;
+                    return false
                 }
             }
 
 
-            pais = pais.trim();
-            if (pais.isEmpty() || pais.length() > 45) {
-                System.out.println("O campo país deve ter no máximo 45 caracteres e não pode estar vazio.");
-                return false;
+            pais = (pais ?: '').trim()
+            if (pais.isEmpty() || pais.length() < 1) {
+                System.out.println("O campo país deve ter mais que 1 caracter e não pode estar vazio.");
+                return false
             }
 
 
-            descricao = descricao.trim();
+            descricao = (descricao ?: '').trim()
             if (descricao.isEmpty()) {
                 System.out.println("O campo descrição não pode estar vazio.");
-                return false;
+                return false
             }
 
-            email = email.trim();
+            email = (email ?: '').trim()
             if (email.isEmpty() || email.length() > 100 || !email.contains("@") || !email.contains(".")) {
                 System.out.println("O campo email deve conter um endereço de e-mail válido.");
-                return false;
+                return false
             }
 
-            senha = senha.trim();
+            senha = (senha ?: '').trim()
             if (senha.length() < 6 || senha.length() > 30) {
                 System.out.println("A senha deve ter entre 6 e 30 caracteres.");
-                return false;
+                return false
             }
 
-
-            if (competencias == null || competencias.isEmpty()) {
-                System.out.println("A lista de competências não pode estar vazia.");
-                return false;
-            }
-
-            return true;
+            return true
         }
 
 
@@ -126,12 +125,14 @@ class Candidato extends Pessoa{
                 Id: $id 
                 Nome: $nome
                 Email: $email
+                Senha: $senha
                 Cep: $cep 
                 Estado: $estado
+                Pais: $pais
                 Descricao: $descricao
                 CPF: $cpf
                 Idade: $idade
-                Competencias: $competencias"""
+                Competencias: ${competencias ? competencias.join(', ') : "nenhuma competência"} """
 
     }
 }
