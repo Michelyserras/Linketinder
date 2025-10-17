@@ -118,7 +118,7 @@ class CompetenciasDAO {
     List<Competencia> listarCompetenciasVagas(int idVaga){
         String query = '''SELECT comp.nome AS nome_competencia FROM competencias_vaga cc
                         INNER JOIN competencias comp ON cc.id_competencia = comp.id
-                        WHERE cc.id_vaga = ?;'''s
+                        WHERE cc.id_vaga = ?;'''
 
         def competencias = [];
         try{
