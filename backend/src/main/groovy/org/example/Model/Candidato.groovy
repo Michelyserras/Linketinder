@@ -8,14 +8,15 @@ class Candidato extends Pessoa{
     List<Competencia> competencias = new ArrayList<>()
 
 
-    Candidato(String nome, String sobrenome, String cpf, int idade, String estado, String cep, String pais, String descricao, String email, String senha, List<Competencia> competencias) {
+    Candidato(String nome, String sobrenome, String cpf, int idade, String estado, String cep, String pais, String descricao, String email, String senha) {
         super(nome, email, cep, estado, descricao, senha)
         this.cpf = cpf
         this.sobrenome = sobrenome
         this.pais = pais
         this.idade = idade
-        this.competencias = competencias
+
     }
+
 
     Candidato() {}
 

@@ -10,11 +10,11 @@ class CandidatoView {
     CompetenciaView competenciaView = new CompetenciaView()
     static scanner = new Scanner(System.in)
 
-//    CandidatoView(CandidatoController candidatoController, CompetenciaController competenciaController){
-//        this.candidatoController = candidatoController
-//        this.competenciaController = competenciaController
-//    }
-//
+    CandidatoView(CandidatoController candidatoController, CompetenciaController competenciaController){
+        this.candidatoController = candidatoController
+        this.competenciaController = competenciaController
+    }
+
 
 
     void menuCandidato() {
@@ -24,7 +24,9 @@ class CandidatoView {
             println """
         1 - Cadastrar Candidato
         2 - Listar Candidatos
-        3 - Voltar
+        3 - Atualizar Candidato
+        4 - Remover Candidato
+        5 - Voltar
         """
 
             print "Escolha uma opcao: "
@@ -48,9 +50,17 @@ class CandidatoView {
                     break
                 case 3:
                     limpaTela()
+                    atualizarCandidato()
+                    break
+                case 4:
+                    limpaTela()
+                    removerCandidato()
+                    break
+                case 5:
+                    limpaTela()
                     return
                 default:
-                    println "Opcao invalida! Digite 1, 2 ou 3."
+                    println "Opcao invalida! Digite um valor entre 1 e 5."
             }
         }
     }
@@ -82,9 +92,9 @@ class CandidatoView {
         println "Digite a idade: "
         idade = Integer.parseInt(scanner.nextLine())
 
-    Candidato candidato = new Candidato()
+        Candidato candidato = new Candidato()
 
-    candidato.setNome(nome)
+        candidato.setNome(nome)
         candidato.setSobrenome(sobrenome)
         candidato.setEmail(email)
         candidato.setSenha(senha)
@@ -120,8 +130,79 @@ class CandidatoView {
         try {
             candidatoController.listarCandidatos()
         } catch (Exception e) {
-            println "Erro ao listar candidatos: ${e.message}"
+            println "Erro ao listar candidatos: ${e.getMessage()}"
         }
+    }
+
+    void atualizarCandidato() {
+        String nome, descricao, cpf, email, cep, estado, senha, sobrenome, pais
+        int idade, id
+
+        println "Informe o id do candidato a ser atualizado: "
+        id = Integer.parseInt(scanner.nextLine())
+
+        def candidatoExiste = candidatoController.buscarCandidato(id)
+        println "Candidato encontrado: ${candidatoExiste?.id} - ${candidatoExiste?.nome}"
+
+        if (candidatoExiste != null && candidatoExiste?.id != 0) {
+            println "Digite o nome: "
+            nome = scanner.nextLine()
+            println "Digite o sobrenome: "
+            sobrenome = scanner.nextLine()
+            println "Digite o email: "
+            email = scanner.nextLine()
+            println "Digite a senha: "
+            senha = scanner.nextLine()
+            println "Digite o pais: "
+            pais = scanner.nextLine()
+            println "Digite o cep: "
+            cep = scanner.nextLine()
+            println "Digite o estado: "
+            estado = scanner.nextLine()
+            println "Digite a descricao: "
+            descricao = scanner.nextLine()
+            println "Digite o cpf: "
+            cpf = scanner.nextLine()
+            println "Digite a idade: "
+            idade = Integer.parseInt(scanner.nextLine())
+
+            Candidato candidato = new Candidato(
+                    nome: nome,
+                    sobrenome: sobrenome,
+                    email: email,
+                    senha: senha,
+                    pais: pais,
+                    idade: idade,
+                    cep: cep,
+                    estado: estado,
+                    descricao: descricao,
+                    cpf: cpf
+            )
+
+            try {
+                candidatoController.atualizarCandidato(id, candidato)
+            } catch (Exception e) {
+                println "Erro ao atualizar candidato: ${e.getMessage()}"
+            }
+        } else {
+            println("O candidato com o id: ${id} não foi encontrado")
+        }
+    }
+
+
+
+    void removerCandidato(){
+        Integer id;
+
+        println "Informe o id do candidato a ser removido: "
+        id = Integer.parseInt(scanner.nextLine())
+
+        try {
+            candidatoController.removerCandidato(id)
+        }catch(Exception e){
+            println("Erro ao remover candidato: ${e.getMessage()}")
+        }
+
     }
 
     void limpaTela(){
@@ -129,5 +210,8 @@ class CandidatoView {
             println ""
         }
     }
+
+
+
 
 }

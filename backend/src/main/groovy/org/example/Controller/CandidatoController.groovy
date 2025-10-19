@@ -8,13 +8,13 @@ class CandidatoController {
 
     CandidatoService candidatoService = new CandidatoService(candidatoDAO: new org.example.DAO.CandidatoDAO())
 
-//    CandidatoController(){
-//        inicializarCandidatos()
-//    }
+    CandidatoController(){
+        inicializarCandidatos()
+    }
 
     def cadastrarCandidato(Candidato candidato){
         try{
-            return candidatoService.cadastrarCandidato(candidato)
+           return candidatoService.cadastrarCandidato(candidato)
         }catch(Exception e){
             println("${e.getStackTrace()}")
             return null
@@ -22,26 +22,50 @@ class CandidatoController {
 
     }
 
-    def listarCandidatos() {
-        def candidatos = candidatoService.listarCandidato()
-        if (candidatos == null || candidatos.lengh){
-            throw new Exception("Nenhum candidato cadastrado.")
-        } else{
-          for(Candidato pf : candidatos){
-              println ""
-              println pf.toString()
-              println "==============================================="
-          }
+    def atualizarCandidato(Integer id, Candidato candidato){
+        try{
+            candidatoService.atualizarCandidato(id, candidato)
+        }catch(Exception e ){
+            println("${e.getMessage()}")
         }
     }
 
-//    def inicializarCandidatos(){
-//        candidat
-//        candidatos.add(new Candidato("Alice", "alice@email.com", "SP", "12345-678", "Apaixonada por tecnologia", "12345678901", 25, ["Java", "Python"]))
-//        candidatos.add(new Candidato("Bruno", "bruno@email.com", "RJ", "23456-789", "Desenvolvedor fullstack", "23456789012", 30, ["Angular", "Spring Framework"]))
-//        candidatos.add(new Candidato("Carla", "carla@email.com", "MG", "34567-890", "Engenheira de dados", "34567890123", 28, ["Python", "SQL"]))
-//        candidatos.add(new Candidato("Daniel", "daniel@email.com", "RS", "45678-901", "Especialista em frontend", "45678901234", 35, ["Angular", "React"]))
-//        candidatos.add(new Candidato("Elena", "elena@email.com", "BA", "56789-012", "Analista de sistemas", "56789012345", 22, ["Java", "Spring Boot"]))
-//    }
+    def removerCandidato(Integer id){
+        try{
+            return candidatoService.removerCandidato(id)
+        }catch(Exception e){
+            println "Erro: ${e.getStackTrace()}"
+        }
+    }
+
+    def listarCandidatos() {
+       try{
+           candidatoService.listarCandidato()
+       }catch(Exception e){
+           println("${e.getMessage()}")
+       }
+    }
+
+    def buscarCandidato(Integer id){
+        try{
+            candidatoService.buscarCandidato(id)
+        }catch(Exception e){
+            println("${e.getMessage()}")
+        }
+    }
+
+
+    def inicializarCandidatos(){
+        def candidatos = []
+        candidatos.add(new Candidato("Alice","Silva", "12345678901",25, "SP", "12345678","Brasil",  "Apaixonada por tecnologia", "alice@email.com","1234567"))
+        candidatos.add(new Candidato("Bruno", "Santos","23456789012", 30,  "RJ", "23456789", "Brasil", "Desenvolvedor fullstack",  "bruno@email.com", "40028922"))
+        candidatos.add(new Candidato("Carla", "Oliveira", "34567890123", 28, "MG", "34567890", "Brasil",  "Engenheira de dados", "carla@email.com", "D152z656"))
+        candidatos.add(new Candidato("Daniel","Santos",  "45678901234", 35, "RS", "45678901", "Brasil", "Especialista em frontend", "daniel@email.com", "Daniel12345"))
+        candidatos.add(new Candidato("Elena", "Gilbert", "56789012345", 22, "BA", "56789012", "Brasil", "Analista de sistemas",  "elena@email.com", "theVampireDiaries1235"))
+
+        candidatos.forEach{ c ->
+            candidatoService.cadastrarCandidato(c)
+        }
+    }
 
 }

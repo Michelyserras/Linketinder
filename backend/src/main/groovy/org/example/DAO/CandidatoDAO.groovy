@@ -45,11 +45,11 @@ class CandidatoDAO {
         }
     }
 
-    def removerCandidato(Candidato candidato){
+    def removerCandidato(int id){
         String query = ''' DELETE FROM candidato WHERE id = ?; '''
         try{
            conn.prepareStatement(query).withCloseable {ps ->
-                ps.setInt(1, candidato.getId())
+                ps.setInt(1, id)
                 ps.execute()
                 println 'Candidato removido com sucesso'
             }
@@ -58,8 +58,8 @@ class CandidatoDAO {
         }
     }
 
-    def atualizarCandidato(Candidato candidato){
-        String query = ''' UPDATE TABLE candidato SET nome = ?, sobrenome = ?, cpf = ?, idade = ?, estado = ?, cep = ?, pais = ?, descricao = ?, email = ?, senha = ?;'''
+    def atualizarCandidato(Integer id, Candidato candidato){
+        String query = ''' UPDATE candidato SET nome = ?, sobrenome = ?, cpf = ?, idade = ?, estado = ?, cep = ?, pais = ?, descricao = ?, email = ?, senha = ? WHERE id = ?;'''
 
         try{
             conn.prepareStatement(query).withCloseable {ps->
@@ -73,6 +73,7 @@ class CandidatoDAO {
                 ps.setString(8, candidato.descricao)
                 ps.setString(9, candidato.email)
                 ps.setString(10, candidato.senha)
+                ps.setInt(11, id);
 
                 ps.executeUpdate()
 
@@ -113,6 +114,37 @@ class CandidatoDAO {
         }catch(SQLException sql){
             println "Erro ao listar candidatos: ${sql.getMessage()}"
 
+        }
+    }
+
+    def buscarCandidatoPorID(int id){
+        String query = '''SELECT * FROM candidato WHERE id=?'''
+
+        try{
+            conn.prepareStatement(query).withCloseable {ps->
+                ps.setInt(1, id)
+                ResultSet rs = ps.executeQuery()
+                if(rs.next()){
+                    List<Competencia> competencias = competenciaDao.listarCompetenciasCandidatos(rs.getInt("id"))
+                    return new Candidato(
+                            id: rs.getInt("id"),
+                            nome: rs.getString("nome"),
+                            sobrenome: rs.getString("sobrenome"),
+                            cpf: rs.getString("cpf"),
+                            idade: rs.getInt("idade"),
+                            estado: rs.getString("estado"),
+                            cep: rs.getString("cep"),
+                            pais: rs.getString("pais"),
+                            descricao: rs.getString("descricao"),
+                            email: rs.getString("email"),
+                            senha: rs.getString("senha"),
+                            competencias: competencias)
+                }else{
+                    return null
+                }
+            }
+        }catch (SQLException sql){
+            println("Erro ao buscar competência: ${sql} ")
         }
     }
 }

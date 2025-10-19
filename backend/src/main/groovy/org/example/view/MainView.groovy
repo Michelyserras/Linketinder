@@ -1,8 +1,13 @@
 package org.example.view
 
+import org.example.Controller.CandidatoController
+import org.example.Controller.CompetenciaController
+
 class MainView {
     Scanner scanner = new Scanner(System.in)
-    CandidatoView candidatoView= new CandidatoView()
+    CandidatoController cc = new CandidatoController()
+    CompetenciaController compc = new CompetenciaController()
+    CandidatoView candidatoView = new CandidatoView(cc, compc)
 
 
     void menu() {
